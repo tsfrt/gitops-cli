@@ -3,7 +3,6 @@ const git = require('./git.js')
 const path = require('path')
 const envManager = require('./envManager.js')
 const program = new Command()
-require('dotenv').config()
 
 
 async function main () {
@@ -15,9 +14,6 @@ async function main () {
   program.command('service-list [service-list]')
     .description('')
     .requiredOption('-t, --type <type>', 'apps')
-    .requiredOption('-p, --product <product>', 'ada | ciris | etc')
-    .requiredOption('-w, --env <group>', 'dev | test | stage | prod')
-    .requiredOption('-s, --service <service>', 'ada-server | ciris-ui | etc')
     .action(serviceList)
 
   program.command('service-build-version [service-build-version]')
